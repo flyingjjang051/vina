@@ -63,7 +63,7 @@
 #keyword .movingItems .item.cloud02 { top: 300px; left: 50px; }
 #keyword .movingItems .item.cloud03 { top: 150px; right: 110px; }
 
-#mainVisual { position: relative; overflow: hidden; min-height: 100vh; margin-top: -200px; min-width: 1200px; display: none; }
+#mainVisual { position: relative; overflow: hidden; min-height: 100vh; margin-top: -200px; min-width: 1200px; display: block; }
 #mainVisual .line { display: block; }
 
 #voice { overflow: hidden; position: relative; }
