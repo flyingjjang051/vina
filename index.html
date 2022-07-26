@@ -945,7 +945,7 @@
               </div>
             </div>
           </div>
-          <!--
+
           <div id="circle">
             <div class="bg"></div>
             <div class="txt" data-splitting>
@@ -956,7 +956,7 @@
               </p>
             </div>
           </div>
-          
+
           <div id="keyboard">
             <div class="cover"></div>
             <div class="keyboardWrap">
@@ -1003,7 +1003,6 @@
               </div>
             </div>
           </div>
-
           <div id="keyboard02">
             <div class="cover"></div>
             <div class="keyboardWrap">
@@ -1056,7 +1055,6 @@
               </div>
             </div>
           </div>
-          -->
         </div>
         <!-- mainVisual end -->
 
@@ -2075,6 +2073,71 @@
             from: "random",
             amount: 1,
           },
+        })
+
+        // circle
+        .set("#circle", {
+          display: "block",
+        })
+        .to("#circle .bg", {
+          clipPath: "circle(100%)",
+          duration: 5,
+        })
+        .from("#circle .txt .char", {
+          opacity: 0,
+          stagger: {
+            amount: 3,
+          },
+        })
+
+        //keyboard
+        .from("#keyboard .cover", {
+          opacity: 0,
+        })
+        .from("#keyboard .keyboardWrap .key", {
+          opacity: 0,
+          stagger: {
+            each: 1,
+            from: "random",
+          },
+        })
+        .from("#keyboard .keyboardBox02 .txt", {
+          opacity: 0,
+          stagger: {
+            amount: 2,
+          },
+        })
+        .from("#keyboard .keyboardWrap .pointer", {
+          opacity: 0,
+        })
+
+        //keyboad02
+        .set("#keyboard02", {
+          display: "block",
+        })
+        .to("#keyboard02", {
+          clipPath: "inset(0% 0 0 0)",
+        })
+        .from("#keyboard02 .keyboardBox02 .txt", {
+          opacity: 0,
+          stagger: {
+            amount: 2,
+          },
+        })
+        .to("#keyboard02 .white", {
+          backgroundColor: "#ffffff",
+          color: "#ff5959",
+          stagger: {
+            each: 1,
+            from: "random",
+          },
+        })
+        .from("#keyboard02 .item", {
+          opacity: 0,
+          stagger: 1,
+        })
+        .from("#keyboard02", {
+          duration: 10,
         });
     </script>
   </body>
