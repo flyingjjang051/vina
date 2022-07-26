@@ -1889,6 +1889,38 @@
           stagger: {
             each: 0.1,
           },
+        })
+        // keyboard02
+        .set("#keyboard02", {
+          display: "block",
+        })
+        .to("#keyboard02", {
+          duration: 5,
+          clipPath: "inset(0% 0 0 0)",
+        })
+        .from("#keyboard02 .keybpardBox02 .txt .char", {
+          scale: 0,
+          opacity: 0,
+          stagger: {
+            amount: 3,
+          },
+        })
+        .to("#keyboard02 .white", {
+          backgroundColor: "#ffffff",
+          color: "#ff5959",
+          delay: 5,
+          stagger: {
+            amount: 10,
+          },
+        })
+        .from("#keyboard02 .item", {
+          opacity: 0,
+          stagger: {
+            each: 1,
+          },
+        })
+        .from("#keyboard", {
+          duration: 10,
         });
     </script>
   </body>
