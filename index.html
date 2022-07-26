@@ -1974,13 +1974,13 @@
         .from("#voice .speaker", {
           opacity: 0,
           scale: 0,
+          delay: 3,
         })
         .addLabel("speaker")
         .from(
           "#voice .title .char",
           {
             opacity: 0,
-            scale: 0,
             stagger: {
               each: 0.1,
             },
@@ -2019,6 +2019,7 @@
         //colorCover
         .from("#colorCover .cover", {
           opacity: 0,
+          duration: 5,
         })
         .from("#colorCover .txt .char", {
           opacity: 0,
@@ -2053,6 +2054,7 @@
         //graph
         .from("#graph .cover", {
           height: 0,
+          duration: 5,
         })
         .to("#graph .contents .bg", {
           opacity: 1,
@@ -2080,19 +2082,26 @@
           display: "block",
         })
         .to("#circle .bg", {
+          delay: 5,
           clipPath: "circle(100%)",
-          duration: 5,
+          duration: 10,
+          ease: "none",
         })
         .from("#circle .txt .char", {
           opacity: 0,
           stagger: {
-            amount: 3,
+            amount: 5,
           },
         })
 
         //keyboard
         .from("#keyboard .cover", {
+          delay: 5,
           opacity: 0,
+        })
+        .from("#keyboard .keyboardWrap", {
+          opacity: 0,
+          duration: 5,
         })
         .from("#keyboard .keyboardWrap .key", {
           opacity: 0,
@@ -2113,12 +2122,14 @@
 
         //keyboad02
         .set("#keyboard02", {
+          delay: 5,
           display: "block",
         })
         .to("#keyboard02", {
           clipPath: "inset(0% 0 0 0)",
+          duration: 5,
         })
-        .from("#keyboard02 .keyboardBox02 .txt", {
+        .from("#keyboard02 .keyboardBox02 .txt .char", {
           opacity: 0,
           stagger: {
             amount: 2,
