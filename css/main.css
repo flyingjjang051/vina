@@ -94,7 +94,7 @@
 #graph .cover { width: 100%; height: 100vh; position: absolute; bottom: 0; left: 0; background-color: #fff; }
 #graph .contents { width: 100%; position: absolute; top: 40%; -webkit-transform: translateY(-50%); transform: translateY(-50%); left: 0; }
 #graph .contents .graphBox { position: relative; min-height: 300px; }
-#graph .contents .graphBox div { position: absolute; top: 0; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+#graph .contents .graphBox div { position: absolute; top: 0; left: 50%; margin-left:-360px }
 #graph .contents .graphBox .item { z-index: 2; -webkit-transform-origin: 90% 10%; transform-origin: 90% 10%; opacity: 0; -webkit-transition: -webkit-box-shadow 1s ease; transition: -webkit-box-shadow 1s ease; transition: box-shadow 1s ease; transition: box-shadow 1s ease, -webkit-box-shadow 1s ease; }
 #graph .contents .graphBox .item.shadow { -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05); box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05); }
 #graph .contents .graphBox .bg { opacity: 0; }
