@@ -884,7 +884,7 @@
               </div>
             </div>
           </div>
-
+          <!--
           <div id="colorCover">
             <div class="cover"></div>
             <div class="txt" data-splitting>
@@ -956,6 +956,7 @@
               </p>
             </div>
           </div>
+          
           <div id="keyboard">
             <div class="cover"></div>
             <div class="keyboardWrap">
@@ -1055,6 +1056,7 @@
               </div>
             </div>
           </div>
+          -->
         </div>
         <!-- mainVisual end -->
 
@@ -1732,6 +1734,7 @@
       </div>
       <a href="#" class="btn_close"><img src="img/solution/btn_close.png" alt="" /></a>
     </div>
+    <!--
     <script>
       Splitting();
       const etcTotal = $("#voice .items .etc").length; //4
@@ -1778,12 +1781,6 @@
           pin: true,
           start: "top top", // 1번째꺼는 부딪히는 오브젝트의 상단 2번째꺼는 화면의 바닥   top bottom
           end: "bottom+=1000% top", // 1번재꺼는 부딪히는 오브젝트의 바닥 2번째꺼는 화면의 상단   bottom top
-          markers: {
-            startColor: "#ff00",
-            endColor: "#0000ff",
-            fontSize: "20px",
-            indent: 50,
-          },
         },
       });
 
@@ -1921,6 +1918,83 @@
         })
         .from("#keyboard", {
           duration: 10,
+        });
+    </script>
+    -->
+    <script>
+      Splitting();
+      gsap.defaults({
+        duration: 1,
+        ease: "power4",
+      });
+
+      $("#voice .etc").each(function (idx, item) {
+        const radiusX = 650;
+        const radiusY = 350;
+        const etcTotal = $("#voice .etc").length;
+        $(item).attr({
+          "data-left": (radiusX + 200) * Math.cos((idx / etcTotal) * Math.PI * 2),
+          "data-top": (radiusY + 200) * Math.sin((idx / etcTotal) * Math.PI * 2),
+        });
+
+        $(item).css({ left: radiusX * Math.cos((idx / etcTotal) * Math.PI * 2) });
+        $(item).css({ top: radiusY * Math.sin((idx / etcTotal) * Math.PI * 2) });
+      });
+
+      const voiceTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#mainVisual",
+          markers: true,
+          start: "top top",
+          end: "bottom top", // padding-bottom을 늘리는거랑 같다.
+          pin: true, // position fixed를 설정해준다.
+        },
+      });
+      voiceTL
+        .from("#voice .speaker", {
+          opacity: 0,
+          scale: 0,
+        })
+        .addLabel("speaker")
+        .from(
+          "#voice .title .char",
+          {
+            opacity: 0,
+            scale: 0,
+            stagger: {
+              each: 0.1,
+            },
+          },
+          "speaker"
+        )
+        .from(
+          "#voice .etc",
+          {
+            opacity: 0,
+            scale: 0,
+            stagger: {
+              each: 0.1,
+              from: "random",
+            },
+          },
+          "speaker"
+        )
+        .to("#voice .title", {
+          opacity: 0,
+          scale: 0,
+        })
+        .to("#voice .etc", {
+          opacity: 0,
+          left: function (idx, item, list) {
+            return $(item).data("left");
+          },
+          top: function (idx, item, list) {
+            return $(item).data("top");
+          },
+          stagger: {
+            each: 0.1,
+            from: "random",
+          },
         });
     </script>
   </body>
